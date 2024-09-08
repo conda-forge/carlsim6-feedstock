@@ -17,32 +17,11 @@ jobs:
       win_64_cuda_compilerNonecuda_compiler_versionNonepython3.12.____cpython:
         CONFIG: win_64_cuda_compilerNonecuda_compiler_versionNonepython3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilerNonecuda_compiler_versionNonepython3.8.____cpython:
-        CONFIG: win_64_cuda_compilerNonecuda_compiler_versionNonepython3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilerNonecuda_compiler_versionNonepython3.9.____73_pypy:
-        CONFIG: win_64_cuda_compilerNonecuda_compiler_versionNonepython3.9.____73_pypy
+      win_64_cuda_compilerNonecuda_compiler_versionNonepython3.13.____cp313:
+        CONFIG: win_64_cuda_compilerNonecuda_compiler_versionNonepython3.13.____cp313
         UPLOAD_PACKAGES: 'True'
       win_64_cuda_compilerNonecuda_compiler_versionNonepython3.9.____cpython:
         CONFIG: win_64_cuda_compilerNonecuda_compiler_versionNonepython3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.2python3.10.____cpython:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.2python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.2python3.11.____cpython:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.2python3.11.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.2python3.12.____cpython:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.2python3.12.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.2python3.8.____cpython:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.2python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.2python3.9.____73_pypy:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.2python3.9.____73_pypy
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.2python3.9.____cpython:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.2python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
       win_64_cuda_compilernvcccuda_compiler_version11.8python3.10.____cpython:
         CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.8python3.10.____cpython
@@ -53,11 +32,8 @@ jobs:
       win_64_cuda_compilernvcccuda_compiler_version11.8python3.12.____cpython:
         CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.8python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.8python3.8.____cpython:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.8python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      win_64_cuda_compilernvcccuda_compiler_version11.8python3.9.____73_pypy:
-        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.8python3.9.____73_pypy
+      win_64_cuda_compilernvcccuda_compiler_version11.8python3.13.____cp313:
+        CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.8python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
       win_64_cuda_compilernvcccuda_compiler_version11.8python3.9.____cpython:
         CONFIG: win_64_cuda_compilernvcccuda_compiler_version11.8python3.9.____cpython
@@ -75,7 +51,7 @@ jobs:
         scriptSource: inline
         script: |
           import urllib.request
-          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe'
+          url = 'https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe'
           path = r"$(Build.ArtifactStagingDirectory)/Miniforge.exe"
           urllib.request.urlretrieve(url, path)
 

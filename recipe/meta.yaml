@@ -1,7 +1,7 @@
 {% set processor = "cpu" %}
 {% set name = "carlsim6" %}
 {% set version = "6.1" %}
-{% set build = 3 %}
+{% set build = 4 %}
 
 {% set processor = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [not osx]
 {% set processor = "cpu" %}  # [osx]
@@ -36,7 +36,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ compiler('cuda') }}         # [(cuda_compiler or "None") != "None"]
+    - {{ compiler('cuda') }}         # [cuda_compiler_version != "None"]
     - cmake
     - make                           # [unix]
     - pkg-config
@@ -47,20 +47,20 @@ requirements:
     - python
     - swig
     - gtest
-    - libcurand-dev                  # [cuda_compiler_version == "12.0"]
-    - cuda-cudart-dev                # [cuda_compiler_version == "12.0"]
+    - libcurand-dev                  # [(cuda_compiler_version or "").startswith("12")]
+    - cuda-cudart-dev                # [(cuda_compiler_version or "").startswith("12")]
   run:
     - python
-    - __cuda >={{ cuda_compiler_version }}  # [(cuda_compiler or "None") != "None"]
+    - __cuda >={{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
 
 test:
   commands:
     - test -f $PREFIX/lib/libcarlsim${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/cmake/carlsim/carlsim-config.cmake  # [unix]
     - test -f $PREFIX/include/carlsim.h  # [unix]
-    - test -f $PREFIX/include/cuda_version_control.h  # [unix and (cuda_compiler or "None") != "None"]
+    - test -f $PREFIX/include/cuda_version_control.h  # [unix and cuda_compiler_version != "None"]
     - if exist %PREFIX%\\Library\\lib\\cmake\\carlsim\\carlsim-config.cmake (exit 0) else (exit 1)  # [win]
-    - if exist %PREFIX%\\Library\\include\\cuda_version_control.h (exit 0) else (exit 1)  # [win and (cuda_compiler or "None") != "None"]
+    - if exist %PREFIX%\\Library\\include\\cuda_version_control.h (exit 0) else (exit 1)  # [win and cuda_compiler_version != "None"]
     - if exist %PREFIX%\\Library\\include\\carlsim.h (exit 0) else (exit 1)  # [win]
     - if exist %PREFIX%\\Library\\lib\\carlsim.lib (exit 0) else (exit 1)  # [win]
     - if exist %PREFIX%\\Library\\bin\\carlsim.dll (exit 0) else (exit 1)  # [win]

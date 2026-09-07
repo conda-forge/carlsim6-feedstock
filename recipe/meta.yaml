@@ -11,7 +11,7 @@
 
 package:
   name: {{ name }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   - url: https://github.com/UCI-CARL/{{ name }}/archive/v{{ version }}.tar.gz
